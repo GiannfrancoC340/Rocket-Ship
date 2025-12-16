@@ -5,12 +5,15 @@
         <link href="styles.css" rel="stylesheet"/>
     </head>
     <body>
-        <div class="stars"></div>
+        <!-- Stars -->
+        <div class="stars" id="stars"></div>
 
+        <!-- Ground -->
         <div class="ground"></div>
         <div class="launchpad"></div>
 
-        <div class="rocket-container">
+        <!-- Rocket -->
+        <div class="rocket-container" id="rocketContainer">
             <div class="rocket">
                 <div class="nose"></div>
                 <div class="body">
@@ -18,16 +21,19 @@
                 </div>
                 <div class="fin fin-left"></div>
                 <div class="fin fin-right"></div>
-                <div class="flames">
+                <div class="flames" id="flames">
                     <div class="flame"></div>
                     <div class="flame-inner"></div>
                 </div>
             </div>
         </div>
 
+        <!-- Controls -->
         <div class="controls">
-            <button class="launch-btn">LAUNCH ROCKET</button>
-            <div class="countdown"></div>
+            <button class="launch-btn" id="launchBtn">LAUNCH ROCKET</button>
+            <div class="countdown" id="countdown"></div>
         </div>
+
+        <script src="script.js"></script>
     </body>
 </html>
