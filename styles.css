@@ -142,8 +142,70 @@ body {
 }
 
 /* Flames */
+.flames {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 60px;
+    opacity: 0;
+}
+
+.flames.active {
+    opacity: 1;
+    animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+    50% {
+        transform: translateX(-50%) scaleY(0.95);
+    }
+}
+
+.flame {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(to top, #ff6600 0%, #ff9933 30%, #ffcc00 60%, transparent 100%);
+    border-radius: 50% 50% 0 0;
+}
+
+.flame-inner {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, #ffcc00 0%, #ffff99 50%, transparent 100%);
+    border-radius: 50% 50% 0 0;
+}
 
 /* Smoke */
+.smoke {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: rgba(150, 150, 150, 0.5);
+    border-radius: 50%;
+    animation: smoke-rise 2s ease-out forwards;
+}
+
+@keyframes smoke-rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-150px) scale(2);
+        opacity: 0;
+    }
+}
 
 /* Controls */
 .controls {
