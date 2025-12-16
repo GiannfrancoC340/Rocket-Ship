@@ -35,3 +35,149 @@ body {
     border-radius: 5px;
 }
 
+/* Rocket Container */
+.rocket-container {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.rocket-container.launching {
+    animation: launch 3s ease-in forwards;
+}
+
+@keyframes launch {
+    0% {
+        bottom: 120px;
+        transform: translateX(-50%) scale(1);
+    }
+    100% {
+        bottom: 150%;
+        transform: translateX(-50%) scale(0.3);
+    }
+}
+
+/* Rocket Body */
+.rocket {
+    width: 60px;
+    height: 120px;
+    position: relative;
+}
+
+.body {
+    width: 60px;
+    height: 90px;
+    background: linear-gradient(to right, #e0e0e0 0%, #ffffff 50%, #e0e0e0 100%);
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nose {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 40px solud #ff4444;
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+.window {
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, #87ceeb 0%, #4a90a4 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #667;
+}
+
+.fin {
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    position: absolute;
+    bottom: 0;
+}
+
+.fin-left {
+    border-right: 20px solid #ff6464;
+    left: -20px;
+}
+
+.fin-right {
+    border-left: 20px solid #ff6464;
+    right: -20px;
+}
+
+/* Flames */
+
+/* Smoke */
+
+/* Controls */
+.controls {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.launch-btn {
+    background: linear-gradient(to bottom, #ff4444 0%, #cc0000 100%);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.4);
+    transition: all 0.3s ease;
+}
+
+.launch-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(255, 68, 68, 0.6);
+}
+
+.launch-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.launch-btn:disabled {
+    background: #667;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.countdown {
+    color: white;
+    font-size: 72px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    opacity: 0;
+}
+
+.countdown.active {
+    opacity: 1;
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
