@@ -77,9 +77,17 @@ body {
         bottom: 120px;
         transform: translateX(-50%) scale(1);
     }
-    100% {
+    40% {
         bottom: 150%;
         transform: translateX(-50%) scale(0.3);
+    }
+    45% {
+        bottom: 150%;
+        transform: translateX(-50%) scale(0.3);
+    }
+    100% {
+        bottom: 120px;
+        transform: translateX(-50%) scale(1);
     }
 }
 

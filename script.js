@@ -43,6 +43,27 @@ launchBtn.addEventListener('click', () => {
     }, 1000);
 });
 
+function descent() {
+    // Activate flames for landing burn
+    flames.classList.add('active');
+    
+    // Generate smoke during landing
+    const descentSmokeInterval = setInterval(() => {
+        createSmoke();
+    }, 100);
+
+    // Stop landing smoke and flames when rocket touches down
+    setTimeout(() => {
+        clearInterval(descentSmokeInterval);
+        flames.classList.remove('active');
+    }, 1350);
+
+    // Reset after landing is complete
+    setTimeout(() => {
+        reset();
+    }, 1500);
+}
+
 function launch() {
     // Activate flames
     flames.classList.add('active');
@@ -55,15 +76,16 @@ function launch() {
     // Start launch animation
     rocketContainer.classList.add('launching');
 
-    // Stop smoke after 2 seconds
+    // Stop ascent smoke and flames at peak
     setTimeout(() => {
         clearInterval(smokeInterval);
-    }, 2000);
+        flames.classList.remove('active');
+    }, 1200);
 
-    // Reset after animation completes
+    // Start descent phase
     setTimeout(() => {
-        reset();
-    }, 4000);
+        descent();
+    }, 1550);
 }
 
 function createSmoke() {
