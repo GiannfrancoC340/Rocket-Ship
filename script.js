@@ -89,17 +89,23 @@ function launch() {
 }
 
 function createSmoke() {
-    const smoke = document.createElement('div');
-    smoke.className = 'smoke';
     const rect = rocketContainer.getBoundingClientRect();
-    smoke.style.left = rect.left + rect.width / 2 + (Math.random() - 0.5) * 30 + 'px';
-    smoke.style.bottom = '120px';
-    smoke.style.position = 'absolute';
-    document.body.appendChild(smoke);
-
-    setTimeout(() => {
-        smoke.remove();
-    }, 2000);
+    
+    // Create 2-3 smoke particles at once
+    for (let i = 0; i < 6; i++) {
+        const smoke = document.createElement('div');
+        smoke.className = 'smoke';
+        
+        smoke.style.left = rect.left + rect.width / 2 + (Math.random() - 0.5) * 50 + 'px';
+        smoke.style.top = rect.bottom + (Math.random() * 10) + 'px';  // Slight vertical variation
+        smoke.style.position = 'fixed';
+        
+        document.body.appendChild(smoke);
+        
+        setTimeout(() => {
+            smoke.remove();
+        }, 2000);
+    }
 }
 
 function reset() {
